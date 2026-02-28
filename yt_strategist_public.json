@@ -1,0 +1,1886 @@
+{
+  "name": "yt_strategist",
+  "nodes": [
+    {
+      "parameters": {
+        "operation": "append",
+        "documentId": {
+          "__rl": true,
+          "value": "1CfbEu6Lq5okmQWnT9K3vQCN-hschPm3obExnwMn44eg",
+          "mode": "list",
+          "cachedResultName": "YT_Discovery_And_Ads_Report",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1CfbEu6Lq5okmQWnT9K3vQCN-hschPm3obExnwMn44eg/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "gid=0",
+          "mode": "list",
+          "cachedResultName": "Discovery",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1CfbEu6Lq5okmQWnT9K3vQCN-hschPm3obExnwMn44eg/edit#gid=0"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "date ": "={{$json.date}}",
+            "source": "test",
+            "publishedAt": "={{ $json.publishedAt }}",
+            "views": "={{ $json.views }}",
+            "videoID": "={{ $json.videoId }}",
+            "URL": "={{ $json.url }}",
+            "title": "={{ $json.channelTitle }}",
+            "channelTitle": "={{ $json.channelTitle }}",
+            "viewsPerDay": "={{ $json.viewsPerDay }}",
+            "TrendScore": "={{ $json.trendScore }}",
+            "keywords": "={{ $json.matchedKeywords }}"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "date ",
+              "displayName": "date ",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "source",
+              "displayName": "source",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "videoID",
+              "displayName": "videoID",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "URL",
+              "displayName": "URL",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "title",
+              "displayName": "title",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "channelTitle",
+              "displayName": "channelTitle",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "publishedAt",
+              "displayName": "publishedAt",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "views",
+              "displayName": "views",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "viewsPerDay",
+              "displayName": "viewsPerDay",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "TrendScore",
+              "displayName": "TrendScore",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "keywords",
+              "displayName": "keywords",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.7,
+      "position": [
+        -2320,
+        -192
+      ],
+      "id": "f1c3c9db-6162-46ec-b138-cc5fd31eb9bd",
+      "name": "Append row in sheet",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "hGS4ls4AXD3lnTq6",
+          "name": "Google Sheets account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "c98c0717-5185-4830-9213-0921936ed107",
+              "name": "keywords",
+              "value": "={{ $json.body.keywords}}",
+              "type": "array"
+            },
+            {
+              "id": "0161bac1-f98c-4f9f-9a62-d3a5769f02c3",
+              "name": "regionCode",
+              "value": "={{ $json.query.regionCode }}",
+              "type": "string"
+            },
+            {
+              "id": "59a549f9-8754-4f1a-86c0-795d76cd5025",
+              "name": "maxPerKeyword",
+              "value": "={{ $json.query.maxPerKeyword }}",
+              "type": "number"
+            },
+            {
+              "id": "6077a7be-e56e-4695-b5bd-cdb73ad4f4fc",
+              "name": "publishedAfter",
+              "value": "={{ $json.query.publishedAfter }}",
+              "type": "string"
+            },
+            {
+              "id": "b1c3892e-5b7c-48dd-97e7-98e72b009dba",
+              "name": "order",
+              "value": "=viewCount",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {
+          "ignoreConversionErrors": true
+        }
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -4112,
+        -96
+      ],
+      "id": "a938969d-ac11-451d-951b-5df70f97b914",
+      "name": "configuration"
+    },
+    {
+      "parameters": {
+        "jsCode": "// Read config from first incoming item\nconst cfg = (items[0] && items[0].json) ? items[0].json : {};\n\n// Helpers\nfunction toArray(x) {\n  if (Array.isArray(x)) return x;\n  if (typeof x === 'string') return x.split(','); // allow comma-separated\n  return [];\n}\nfunction isISODate(s) { return typeof s === 'string' && !isNaN(Date.parse(s)); }\n\n// Normalize keywords: arrayify, trim, dedupe, drop empties\nconst rawKw = toArray(cfg.keywords);\nconst keywords = [...new Set(rawKw.map(s => String(s).trim()).filter(Boolean))];\nif (keywords.length === 0) {\n  throw new Error('No keywords provided. Set a keywords array or comma-separated string in the Config step.');\n}\n\n// Normalize region/order\nconst regionCode = String(cfg.regionCode || 'IN').toUpperCase();\nconst allowedOrder = new Set(['date','viewCount','relevance','rating']);\nconst order = allowedOrder.has(String(cfg.order)) ? String(cfg.order) : 'viewCount';\n\n// Normalize publishedAfter (fallback: 90 days ago)\nconst publishedAfter = isISODate(cfg.publishedAfter)\n  ? new Date(cfg.publishedAfter).toISOString()\n  : new Date(Date.now() - 90 * 24 * 60 * 60 * 1000).toISOString();\n\n// Clamp maxPerKeyword to 1..50 (YouTube API limit)\nlet maxPerKeyword = Number.isFinite(Number(cfg.maxPerKeyword)) ? Number(cfg.maxPerKeyword) : 15;\nmaxPerKeyword = Math.max(1, Math.min(50, Math.floor(maxPerKeyword)));\n\n// Emit one item per keyword\nreturn keywords.map(q => ({\n  json: { q, regionCode, order, publishedAfter, maxPerKeyword }\n}));\n"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -3888,
+        -96
+      ],
+      "id": "91ea5737-4eb0-43cf-a986-fddc6e94313c",
+      "name": "Make_keyword_items"
+    },
+    {
+      "parameters": {
+        "jsCode": "const seen = new Set();\nconst out = [];\n\nfor (const res of items) {\n  const list = res.json?.items || [];\n  for (const v of list) {\n    const id = v?.id?.videoId;\n    if (id && !seen.has(id)) {\n      seen.add(id);\n      out.push({ json: { videoId: id, source: 'keyword' } });\n    }\n  }\n}\nreturn out;\n"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -3440,
+        -192
+      ],
+      "id": "d3abb692-9a0e-4bec-87b9-f31a1123b69f",
+      "name": "Collect IDs"
+    },
+    {
+      "parameters": {
+        "batchSize": 50,
+        "options": {}
+      },
+      "type": "n8n-nodes-base.splitInBatches",
+      "typeVersion": 3,
+      "position": [
+        -3216,
+        -192
+      ],
+      "id": "f9f90299-9401-47a0-9b6a-0a7d8af8b750",
+      "name": "Loop Over Items"
+    },
+    {
+      "parameters": {
+        "jsCode": "const ids = items.map(i => i.json.videoId).filter(Boolean);\nreturn [{ json: { ids: ids.join(',') } }];"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -2992,
+        -176
+      ],
+      "id": "98c464a9-2cc3-4cfe-9985-00483e57d39f",
+      "name": "build_ID_csv"
+    },
+    {
+      "parameters": {
+        "url": "https://www.googleapis.com/youtube/v3/search?key=YOUR_YOUTUBE_API_KEY",
+        "sendQuery": true,
+        "queryParameters": {
+          "parameters": [
+            {
+              "name": "part",
+              "value": "snippet"
+            },
+            {
+              "name": "q",
+              "value": "={{ $json.q }}"
+            },
+            {
+              "name": "type",
+              "value": "video"
+            },
+            {
+              "name": "API_KEY",
+              "value": "YOUR_YOUTUBE_API_KEY_2"
+            },
+            {
+              "name": "maxResults",
+              "value": "200"
+            }
+          ]
+        },
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Accept",
+              "value": "application/json"
+            },
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        -3664,
+        -192
+      ],
+      "id": "2671c6ff-2506-4f7f-8282-3f372e98b7f1",
+      "name": "YT.videoData"
+    },
+    {
+      "parameters": {
+        "url": "https://www.googleapis.com/youtube/v3/videos?key=YOUR_YOUTUBE_API_KEY",
+        "sendQuery": true,
+        "queryParameters": {
+          "parameters": [
+            {
+              "name": "part",
+              "value": "snippet,statistics,contentDetails"
+            },
+            {
+              "name": "id",
+              "value": "={{$json.ids}}"
+            },
+            {
+              "name": "API_KEY",
+              "value": "YOUR_YOUTUBE_API_KEY_2"
+            }
+          ]
+        },
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Accept",
+              "value": "application/json"
+            },
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        -2768,
+        -176
+      ],
+      "id": "9fc4098c-6bad-48c3-9941-18f8df5731be",
+      "name": "YT.videoList"
+    },
+    {
+      "parameters": {
+        "jsCode": "const now = new Date();\nconst DAYS = (d) => Math.max(1, (now - new Date(d)) / (1000*60*60*24));\nconst num = (v) => Number(v || 0);\n\n// your relevance keywords (lowercased)\nconst keywordsRaw = $('configuration').first().json.keywords;\nconst cfgKeywords = (Array.isArray(keywordsRaw) ? keywordsRaw : [keywordsRaw])\n  .filter(Boolean)\n  .map(s => String(s).toLowerCase());\n\nfunction matchedKeywordsFrom(params) {\n  const { title, description, tags } = params;\n  const text = [title || \"\", description || \"\", ...(tags || [])]\n    .join(\" \").toLowerCase();\n  const hits = cfgKeywords.filter(k => text.includes(k));\n  return Array.from(new Set(hits));\n}\n\nconst out = [];\n\nfor (const batch of items) {\n  const list = batch.json?.items || [];\n  \n  for (const v of list) {\n    const sn = v.snippet || {};\n    const st = v.statistics || {};\n    \n    const views = num(st.viewCount);\n    const ageDays = DAYS(sn.publishedAt || now.toISOString());\n    const viewsPerDay = views / ageDays;\n    const recencyBoost = 100 / ageDays;\n    \n    const hits = matchedKeywordsFrom({\n      title: sn.title,\n      description: sn.description,\n      tags: sn.tags || []\n    });\n    \n    const trendScore = Math.round(viewsPerDay + recencyBoost + 5 * hits.length);\n    \n    out.push({\n      json: {\n        date: new Date().toISOString(),\n        source: 'keyword',\n        videoId: v.id,\n        url: `https://www.youtube.com/watch?v=${v.id}`,\n        title: sn.title,\n        channelTitle: sn.channelTitle,\n        publishedAt: sn.publishedAt,\n        views: views,\n        viewsPerDay: Math.round(viewsPerDay),\n        trendScore: trendScore,\n        matchedKeywords: hits.join(\", \")\n      }\n    });\n  }\n}\n\nreturn out;"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -2544,
+        -192
+      ],
+      "id": "3cecd7c4-8edf-4b39-8639-70fea862468b",
+      "name": "Normalize+Score"
+    },
+    {
+      "parameters": {
+        "url": "https://www.googleapis.com/youtube/v3/videos?key=YOUR_YOUTUBE_API_KEY",
+        "sendQuery": true,
+        "queryParameters": {
+          "parameters": [
+            {
+              "name": "part",
+              "value": "snippet,statistics,contentDetails"
+            },
+            {
+              "name": "chart",
+              "value": "mostPopular"
+            },
+            {
+              "name": "regionCode",
+              "value": "={{ $json.regionCode }}"
+            },
+            {
+              "name": "maxResults",
+              "value": "50"
+            },
+            {
+              "name": "keyword",
+              "value": "q"
+            }
+          ]
+        },
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Accept",
+              "value": "application/json"
+            },
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        -2768,
+        0
+      ],
+      "id": "646b6426-7a3a-48d5-b896-3177e303a840",
+      "name": "YT.TrendingData"
+    },
+    {
+      "parameters": {
+        "jsCode": "// Process YouTube Trending Videos - Match against USER'S keywords\nconst now = new Date();\nconst DAYS = (d) => Math.max(1, (now - new Date(d)) / (1000*60*60*24));\nconst num = (v) => Number(v || 0);\n\n// Get campaign context\nconst firstItem = items[0]?.json || {};\nconst campaignGoal = firstItem.campaignGoal || 'conversions';\nconst businessType = firstItem.businessType || 'education';\nconst targetAudience = firstItem.targetAudience || 'professionals';\nconst dailyBudget = firstItem.dailyBudget || null;\nconst targetCPA = firstItem.targetCPA || null;\nconst campaignDuration = firstItem.campaignDuration || '30';\n\n// Get USER'S keywords - DYNAMIC, no hardcoding\nconst userKeyword = firstItem.q || '';\nconst keywordParts = userKeyword\n  .toLowerCase()\n  .split(/[\\s,]+/)\n  .filter(w => w.length > 2);\n\nfunction isRelevantToUserKeywords({ title, description, tags }) {\n  const text = [title || \"\", description || \"\", ...(tags || [])]\n    .join(\" \").toLowerCase();\n  \n  // Check if trending video matches ANY part of user's keywords\n  const matches = keywordParts.filter(k => text.includes(k));\n  \n  return {\n    matchedKeywords: Array.from(new Set(matches)),\n    relevanceScore: matches.length * 10\n  };\n}\n\nfunction getTrendingScore(views, likes, comments, ageDays) {\n  const viewsPerDay = views / ageDays;\n  const engagementRate = (likes + comments) / views * 100;\n  const recencyBoost = Math.max(0, 50 - ageDays);\n  \n  return Math.round(viewsPerDay * 0.1 + engagementRate * 5 + recencyBoost);\n}\n\nconst trendingResults = [];\nconst videos = items[0]?.json?.items || [];\n\nfor (const video of videos) {\n  const snippet = video.snippet || {};\n  const statistics = video.statistics || {};\n  \n  const views = num(statistics.viewCount);\n  const likes = num(statistics.likeCount);\n  const comments = num(statistics.commentCount);\n  const ageDays = DAYS(snippet.publishedAt || now.toISOString());\n  \n  const relevance = isRelevantToUserKeywords({\n    title: snippet.title,\n    description: snippet.description,\n    tags: snippet.tags || []\n  });\n  \n  const trendingScore = getTrendingScore(views, likes, comments, ageDays);\n  \n  trendingResults.push({\n    json: {\n      date: now.toISOString(),\n      source: 'trending',\n      videoId: video.id,\n      url: `https://www.youtube.com/watch?v=${video.id}`,\n      title: snippet.title,\n      channelTitle: snippet.channelTitle,\n      channelId: snippet.channelId,\n      publishedAt: snippet.publishedAt,\n      categoryId: snippet.categoryId,\n      \n      views: views,\n      likes: likes,\n      comments: comments,\n      \n      viewsPerDay: Math.round(views / ageDays),\n      trendingScore: trendingScore,\n      relevanceScore: relevance.relevanceScore,\n      matchedKeywords: relevance.matchedKeywords.join(\", \"),\n      userKeyword: userKeyword,  // Original user keyword\n      \n      ageDays: Math.round(ageDays),\n      trendingVelocity: views > 0 ? Math.round((likes + comments) / views * 1000) : 0,\n      \n      isRecentTrend: ageDays <= 7,\n      highEngagement: (likes + comments) / views > 0.05,\n      isRelevant: relevance.relevanceScore > 0,\n      \n      campaignGoal,\n      businessType,\n      targetAudience,\n      dailyBudget,\n      targetCPA,\n      campaignDuration\n    }\n  });\n}\n\nconsole.log(`Processed ${trendingResults.length} trending videos for keyword: \"${userKeyword}\"`);\nconsole.log(`Relevant to user keywords: ${trendingResults.filter(r => r.json.isRelevant).length}`);\n\nreturn trendingResults;"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -2544,
+        0
+      ],
+      "id": "e148c861-8486-42b3-8050-89d282ca4b88",
+      "name": "Code"
+    },
+    {
+      "parameters": {
+        "operation": "append",
+        "documentId": {
+          "__rl": true,
+          "value": "1CfbEu6Lq5okmQWnT9K3vQCN-hschPm3obExnwMn44eg",
+          "mode": "list",
+          "cachedResultName": "YT_Discovery_And_Ads_Report",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1CfbEu6Lq5okmQWnT9K3vQCN-hschPm3obExnwMn44eg/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 1146408809,
+          "mode": "list",
+          "cachedResultName": "Trends",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1CfbEu6Lq5okmQWnT9K3vQCN-hschPm3obExnwMn44eg/edit#gid=1146408809"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "date": "={{ $json.date }}",
+            "source": "={{ $json.source }}",
+            "url": "={{ $json.url }}",
+            "title": "={{ $json.title }}",
+            "channelTitle": "={{ $json.channelTitle }}",
+            "publishedAt": "={{ $json.publishedAt }}",
+            "views": "={{ $json.views }}",
+            "like": "={{ $json.likes }}",
+            "comments": "={{ $json.comments }}",
+            "viewsPerDay": "={{ $json.viewsPerDay }}",
+            "trendingScore": "={{ $json.trendingScore }}",
+            "marketingRelevance": "={{ $json.marketingRelevance }}",
+            "relevantKeywords": "={{ $json.relevantKeywords }}",
+            "ageDays": "={{ $json.ageDays }}",
+            "isRecentTrends": "={{ $json.isRecentTrend }}",
+            "Engagement": "={{ $json.highEngagement }}",
+            "bussinessRelevant": "={{ $json.businessRelevant }}",
+            "trendingVelocity": "={{ $json.trendingVelocity }}",
+            "videoID": "={{ $json.videoId }}"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "date",
+              "displayName": "date",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "source",
+              "displayName": "source",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "videoID",
+              "displayName": "videoID",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "url",
+              "displayName": "url",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "title",
+              "displayName": "title",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "channelTitle",
+              "displayName": "channelTitle",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "publishedAt",
+              "displayName": "publishedAt",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "views",
+              "displayName": "views",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "like",
+              "displayName": "like",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "comments",
+              "displayName": "comments",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "viewsPerDay",
+              "displayName": "viewsPerDay",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "trendingScore",
+              "displayName": "trendingScore",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "marketingRelevance",
+              "displayName": "marketingRelevance",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "relevantKeywords",
+              "displayName": "relevantKeywords",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "ageDays",
+              "displayName": "ageDays",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "trendingVelocity",
+              "displayName": "trendingVelocity",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "isRecentTrends",
+              "displayName": "isRecentTrends",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Engagement",
+              "displayName": "Engagement",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "bussinessRelevant",
+              "displayName": "bussinessRelevant",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.7,
+      "position": [
+        -2320,
+        0
+      ],
+      "id": "01e56b9f-cb17-4325-8cd2-9c22b94d4e9f",
+      "name": "Append row in sheet1",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "hGS4ls4AXD3lnTq6",
+          "name": "Google Sheets account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "// n8n Function Node: Trends Data Normalizer - FULLY DYNAMIC\nfor (let i = 0; i < $input.all().length; i++) {\n  const item = $input.all()[i].json;\n  \n  // Calculate age in days\n  const publishedDate = new Date(item.publishedAt);\n  const now = new Date();\n  const ageDays = Math.max(1, Math.floor((now - publishedDate) / (1000 * 60 * 60 * 24)));\n  \n  // Normalize viewsPerDay\n  const vpd = parseFloat(item.viewsPerDay) || 0;\n  const vpd_normalized = Math.min(vpd / 200000, 1);\n  \n  // Normalize trendingScore\n  const trendScore = parseFloat(item.trendingScore) || 0;\n  const trendScore_normalized = Math.min(trendScore / 100, 1);\n  \n  // Business relevance (if already calculated)\n  const bizRelevant = item.isRelevant === true || item.businessRelevant === true ? 1 : 0;\n  const relevanceScore = parseFloat(item.relevanceScore) || 0;\n  const bizScore = Math.max(bizRelevant, relevanceScore / 100);\n  \n  // ✅ DYNAMIC: Check keyword overlap with USER'S keywords (not hardcoded!)\n  const userKeyword = item.userKeyword || item.matchedKeywords || \"\";\n  const userKeywordParts = userKeyword\n    .toString()\n    .toLowerCase()\n    .split(/[\\s,]+/)\n    .filter(w => w.length > 2);\n  \n  const matchedKeywords = item.matchedKeywords ? item.matchedKeywords.toString().toLowerCase() : \"\";\n  \n  // Check if video matches user's keywords\n  const hasUserKeywords = userKeywordParts.length > 0 && \n    userKeywordParts.some(keyword => matchedKeywords.includes(keyword));\n  \n  const keywordOverlap = hasUserKeywords ? 1 : (matchedKeywords.length > 0 ? 0.5 : 0);\n  \n  // Freshness (trending content = 7-day window)\n  const freshness = Math.max(0, (7 - Math.min(ageDays, 7)) / 7);\n  \n  // Calculate Trends Score (0-100)\n  const trendsScore = Math.round(100 * (\n    0.40 * vpd_normalized +\n    0.25 * trendScore_normalized +\n    0.15 * freshness +\n    0.15 * bizScore +\n    0.05 * keywordOverlap\n  ));\n  \n  // Add calculated fields\n  $input.all()[i].json = {\n    ...item,\n    source: \"trending\",\n    ageDays: ageDays,\n    hotScore: trendsScore,\n    tactic: keywordOverlap >= 0.5 ? \"both\" : \"placement\",\n    userKeywordMatch: hasUserKeywords\n  };\n}\n\nreturn $input.all();"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -2096,
+        0
+      ],
+      "id": "ba543c7f-a3e1-4c27-ab97-bca041d3b0a6",
+      "name": "normalize_data_trends"
+    },
+    {
+      "parameters": {
+        "jsCode": "// n8n Function Node: Discovery Data Normalizer\nfor (let i = 0; i < $input.all().length; i++) {\n  const item = $input.all()[i].json;\n  \n  // Calculate age in days\n  const publishedDate = new Date(item.publishedAt);\n  const now = new Date();\n  const ageDays = Math.max(1, Math.floor((now - publishedDate) / (1000 * 60 * 60 * 24)));\n  \n  // Normalize viewsPerDay (0-1 scale, where 100k = 1.0)\n  const vpd = parseFloat(item.viewsPerDay) || 0;\n  const vpd_normalized = Math.min(vpd / 100000, 1);\n  \n  // Recency score (1 = today, 0 = 30+ days old)\n  const recency = Math.max(0, (30 - Math.min(ageDays, 30)) / 30);\n  \n  // Check if has keywords\n  const hasKeywords = item.keywords && item.keywords.toString().trim().length > 0;\n  const keywordCoverage = hasKeywords ? 1 : 0;\n  \n  // Use your TrendScore as engagement proxy\n  const trendScore = parseFloat(item.TrendScore) || 0;\n  const engagementProxy = Math.min(trendScore / 100, 1);\n  \n  // Calculate final Discovery Score (0-100)\n  const discoveryScore = Math.round(100 * (\n    0.45 * vpd_normalized +     // 45% weight on momentum\n    0.25 * recency +            // 25% weight on freshness\n    0.20 * keywordCoverage +    // 20% weight on having keywords\n    0.10 * engagementProxy      // 10% weight on your trend score\n  ));\n  \n  // Add calculated fields to the item\n  $input.all()[i].json = {\n    ...item,\n    source: \"discovery\",\n    ageDays: ageDays,\n    hotScore: discoveryScore,\n    tactic: keywordCoverage >= 0.5 ? \"both\" : \"keyword\"\n  };\n}\n\nreturn $input.all();"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -2096,
+        -192
+      ],
+      "id": "3dc86ee6-15f6-415e-8029-c10153ee415a",
+      "name": "normalize_data_discovery"
+    },
+    {
+      "parameters": {
+        "operation": "appendOrUpdate",
+        "documentId": {
+          "__rl": true,
+          "value": "1CfbEu6Lq5okmQWnT9K3vQCN-hschPm3obExnwMn44eg",
+          "mode": "list",
+          "cachedResultName": "YT_Discovery_And_Ads_Report",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1CfbEu6Lq5okmQWnT9K3vQCN-hschPm3obExnwMn44eg/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 260738127,
+          "mode": "list",
+          "cachedResultName": "normalized_trends_data",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1CfbEu6Lq5okmQWnT9K3vQCN-hschPm3obExnwMn44eg/edit#gid=260738127"
+        },
+        "columns": {
+          "mappingMode": "autoMapInputData",
+          "value": {},
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "date ",
+              "displayName": "date ",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "source",
+              "displayName": "source",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "publishedAt",
+              "displayName": "publishedAt",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "views",
+              "displayName": "views",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "videoID",
+              "displayName": "videoID",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "URL",
+              "displayName": "URL",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "title",
+              "displayName": "title",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "channelTitle",
+              "displayName": "channelTitle",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "viewsPerDay",
+              "displayName": "viewsPerDay",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "TrendScore",
+              "displayName": "TrendScore",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "keywords",
+              "displayName": "keywords",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "ageDays",
+              "displayName": "ageDays",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "hotScore",
+              "displayName": "hotScore",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "tactic",
+              "displayName": "tactic",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {
+          "cellFormat": "RAW"
+        }
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.7,
+      "position": [
+        -1872,
+        -192
+      ],
+      "id": "49139a33-2c9d-45a3-b44e-9a3257c95fda",
+      "name": "Append or update row in sheet",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "hGS4ls4AXD3lnTq6",
+          "name": "Google Sheets account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "append",
+        "documentId": {
+          "__rl": true,
+          "value": "1CfbEu6Lq5okmQWnT9K3vQCN-hschPm3obExnwMn44eg",
+          "mode": "list",
+          "cachedResultName": "YT_Discovery_And_Ads_Report",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1CfbEu6Lq5okmQWnT9K3vQCN-hschPm3obExnwMn44eg/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 415192305,
+          "mode": "list",
+          "cachedResultName": "normalized_discovery_Data",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1CfbEu6Lq5okmQWnT9K3vQCN-hschPm3obExnwMn44eg/edit#gid=415192305"
+        },
+        "columns": {
+          "mappingMode": "autoMapInputData",
+          "value": {},
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "date",
+              "displayName": "date",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "source",
+              "displayName": "source",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "url",
+              "displayName": "url",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "title",
+              "displayName": "title",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "channelTitle",
+              "displayName": "channelTitle",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "publishedAt",
+              "displayName": "publishedAt",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "views",
+              "displayName": "views",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "like",
+              "displayName": "like",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "comments",
+              "displayName": "comments",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "viewsPerDay",
+              "displayName": "viewsPerDay",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "trendingScore",
+              "displayName": "trendingScore",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "marketingRelevance",
+              "displayName": "marketingRelevance",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "relevantKeywords",
+              "displayName": "relevantKeywords",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "ageDays",
+              "displayName": "ageDays",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "isRecentTrends",
+              "displayName": "isRecentTrends",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Engagement",
+              "displayName": "Engagement",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "bussinessRelevant",
+              "displayName": "bussinessRelevant",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "trendingVelocity",
+              "displayName": "trendingVelocity",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "videoID",
+              "displayName": "videoID",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "hotScore",
+              "displayName": "hotScore",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "tactic",
+              "displayName": "tactic",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {
+          "cellFormat": "RAW"
+        }
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.7,
+      "position": [
+        -1872,
+        0
+      ],
+      "id": "1d788c55-13e6-4164-8b25-97954897ff33",
+      "name": "normalized trends data",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "hGS4ls4AXD3lnTq6",
+          "name": "Google Sheets account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "mode": "chooseBranch",
+        "numberInputs": 3,
+        "useDataOfInput": 3
+      },
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 3.2,
+      "position": [
+        -1648,
+        -16
+      ],
+      "id": "7eec3ead-840b-4e37-934a-734adce7eaff",
+      "name": "Merge"
+    },
+    {
+      "parameters": {
+        "jsCode": "/**\n * Normalizes SerpApi \"engine=google\" search JSON into rows for Google Sheets.\n * Handles: organic_results, related_questions.\n * Keeps actual content (titles/snippets/questions) + original query context.\n */\nconst doc = $json || {};\nconst nowISO = new Date().toISOString();\n\n// Pull original query context\nconst sp = doc.search_parameters || {};\nconst rawQuery = (sp.q || \"\").trim();\nconst queryKeywords = rawQuery\n  ? rawQuery.split(\",\").map(s => s.trim()).filter(Boolean)\n  : [];\n\n// ✅ NEW: Get campaign context if available\nconst campaignGoal = $json.campaignGoal || 'conversions';\nconst businessType = $json.businessType || 'lead generation';\nconst targetAudience = $json.targetAudience || 'professionals';\nconst dailyBudget = $json.dailyBudget || null;\nconst targetCPA = $json.targetCPA || null;\nconst campaignDuration = $json.campaignDuration || '30';\n\n// Helper: extract domain from a URL\nfunction toDomain(url) {\n  try { return new URL(url).hostname.replace(/^www\\./, \"\"); }\n  catch { return \"\"; }\n}\n\nconst out = [];\n\n// 1) Organic results → one row per result\nif (Array.isArray(doc.organic_results)) {\n  for (const r of doc.organic_results) {\n    const link = r.link || \"\";\n    out.push({\n      json: {\n        fetchedAt: nowISO,\n        type: \"organic\",\n        query: rawQuery,\n        keywords: queryKeywords.join(\", \"),\n        position: r.position ?? null,\n        title: r.title || \"\",\n        snippet: r.snippet || \"\",\n        link,\n        domain: toDomain(link),\n        displayedLink: r.displayed_link || \"\",\n        source: r.source || \"google_search\",\n        sitelinks_count: Array.isArray(r.sitelinks) ? r.sitelinks.length : 0,\n        // ✅ NEW: Pass campaign context\n        campaignGoal,\n        businessType,\n        targetAudience,\n        dailyBudget,\n        targetCPA,\n        campaignDuration\n      }\n    });\n  }\n}\n\n// 2) Related questions (People Also Ask) → one row per question\nif (Array.isArray(doc.related_questions)) {\n  for (const q of doc.related_questions) {\n    const link = q.link || \"\";\n    out.push({\n      json: {\n        fetchedAt: nowISO,\n        type: \"paa\",\n        query: rawQuery,\n        keywords: queryKeywords.join(\", \"),\n        question: q.question || \"\",\n        title: q.title || \"\",\n        snippet: q.snippet || \"\",\n        link,\n        domain: toDomain(link),\n        displayedLink: q.displayed_link || \"\",\n        source: \"google_related\",\n        // ✅ NEW: Pass campaign context\n        campaignGoal,\n        businessType,\n        targetAudience,\n        dailyBudget,\n        targetCPA,\n        campaignDuration\n      }\n    });\n  }\n}\n\n// 3) Fallback\nif (out.length === 0) {\n  return [{\n    json: {\n      fetchedAt: nowISO,\n      type: \"diagnostic\",\n      note: \"No organic_results / related_questions found\",\n      query: rawQuery,\n      keys_present: Object.keys(doc)\n    }\n  }];\n}\n\nreturn out;"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -2096,
+        192
+      ],
+      "id": "a6155620-f42a-4080-b38c-697a80fe9f49",
+      "name": "normalizer"
+    },
+    {
+      "parameters": {
+        "operation": "append",
+        "documentId": {
+          "__rl": true,
+          "value": "1CfbEu6Lq5okmQWnT9K3vQCN-hschPm3obExnwMn44eg",
+          "mode": "list",
+          "cachedResultName": "YT_Discovery_And_Ads_Report",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1CfbEu6Lq5okmQWnT9K3vQCN-hschPm3obExnwMn44eg/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 1725019876,
+          "mode": "list",
+          "cachedResultName": "google_search",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1CfbEu6Lq5okmQWnT9K3vQCN-hschPm3obExnwMn44eg/edit#gid=1725019876"
+        },
+        "columns": {
+          "mappingMode": "autoMapInputData",
+          "value": {},
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "fetchedAt",
+              "displayName": "fetchedAt",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "type",
+              "displayName": "type",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "query",
+              "displayName": "query",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "keywords",
+              "displayName": "keywords",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "position",
+              "displayName": "position",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "title",
+              "displayName": "title",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "snippet",
+              "displayName": "snippet",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "link",
+              "displayName": "link",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "domain",
+              "displayName": "domain",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "displayedLink",
+              "displayName": "displayedLink",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "source",
+              "displayName": "source",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "sitelinks_count",
+              "displayName": "sitelinks_count",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "question",
+              "displayName": "question",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {
+          "cellFormat": "RAW"
+        }
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.7,
+      "position": [
+        -1872,
+        192
+      ],
+      "id": "5c41e646-2ee1-4b66-abc5-97d1b01249d0",
+      "name": "Append row in sheet3",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "hGS4ls4AXD3lnTq6",
+          "name": "Google Sheets account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "url": "https://serpapi.com/search",
+        "sendQuery": true,
+        "queryParameters": {
+          "parameters": [
+            {
+              "name": "engine ",
+              "value": "google_ads_transparency"
+            },
+            {
+              "name": "platform ",
+              "value": "youtube"
+            },
+            {
+              "name": "q",
+              "value": "={{ $json.query.keywords }}"
+            },
+            {
+              "name": "hl",
+              "value": "en"
+            },
+            {
+              "name": "gl",
+              "value": "={{ $json.query.regionCode }}"
+            },
+            {
+              "name": "api_key",
+              "value": "YOUR_SERPAPI_KEY"
+            }
+          ]
+        },
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {}
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        -2320,
+        192
+      ],
+      "id": "fcf2ecbc-305a-443d-b362-322bf937a5a7",
+      "name": "Google_data"
+    },
+    {
+      "parameters": {
+        "jsCode": "/**\n * INPUT: many rows from your Merge node (discovery + trends + search)\n * OUTPUT: ONE compact JSON with ranked aggregates + examples + constraints.\n * Feed THIS to the GPT node: {{$json}}\n */\n\nconst rows = $input.all().map(i => i.json);\n\n// ✅ DYNAMIC: Get campaign context from first item\nconst firstRow = rows[0] || {};\nconst campaignGoal = firstRow.campaignGoal || 'conversions';\nconst businessType = firstRow.businessType || 'lead generation';\nconst targetAudience = firstRow.targetAudience || 'gym brats';\nconst dailyBudget = firstRow.dailyBudget || '$5-$10';\nconst targetCPA = firstRow.targetCPA || '$5-$7';\nconst campaignDuration = firstRow.campaignDuration || '30';\nconst regionCode = firstRow.regionCode || 'IN';\n\n// ✅ DYNAMIC: Get user's actual keywords (not hardcoded!)\nconst userKeywords = [...new Set(rows\n  .map(r => r.userKeyword || r.keywords || r.matchedKeywords || '')\n  .filter(Boolean)\n  .flatMap(k => k.toString().split(','))\n  .map(k => k.trim())\n  .filter(k => k.length > 2)\n)];\n\n// ✅ DYNAMIC: Build business goal based on user's keywords and goal\nconst keywordList = userKeywords.slice(0, 5).join(', ');\nconst goalText = campaignGoal === 'conversions' ? 'drive conversions and qualified leads' :\n                 campaignGoal === 'awareness' ? 'maximize brand awareness and reach' :\n                 campaignGoal === 'consideration' ? 'engage and educate target audience' :\n                 'drive website traffic';\n\nconst business_goal = `Plan YouTube Ads campaigns for \"${keywordList}\" to ${goalText} targeting ${targetAudience} in ${regionCode}.`;\n\n// ✅ DYNAMIC: Constraints based on user input\nconst constraints = {\n  geo: regionCode,\n  languages: regionCode === 'IN' ? [\"en\", \"hi\"] : \n             regionCode === 'US' ? [\"en\"] :\n             regionCode === 'ES' ? [\"es\"] :\n             [\"en\"], // default\n  budget_daily: dailyBudget || '$5-10/day', // Will be calculated by next node\n  target_cpa: targetCPA || '$5-$7',\n  campaign_duration: campaignDuration\n};\n\n// ---- data dictionary for model context\nconst data_dictionary = {\n  views: \"Total views on video (count)\",\n  likes: \"Total likes (count)\",\n  comments: \"Total comments (count)\",\n  ageDays: \"Days since publish (min 1)\",\n  viewsPerDay: \"views / ageDays\",\n  engagementPct: \"(likes+comments)/views * 100\",\n  trendingScore: \"velocity (views/day) + engagement + recency heuristic\",\n  TrendScore: \"alias for trendingScore (if present in your rows)\",\n  hotScore: \"your internal score from normalize+score\",\n  tactic: \"origin flag: discovery|trending|both|search\",\n  keywords: \"comma-separated matched marketing keywords\"\n};\n\n// ---- derive normalized record set (safe numbers)\nconst safe = n => Number.isFinite(+n) ? +n : 0;\n\nconst records = rows.map(r => {\n  const views = safe(r.views);\n  const likes = safe(r.likes);\n  const comments = safe(r.comments);\n  const ageDays = Math.max(1, safe(r.ageDays));\n  const viewsPerDay = safe(r.viewsPerDay) || Math.round(views / ageDays);\n  const engagementPct = views > 0 ? ((likes + comments) / views) * 100 : 0;\n  const recencyBoost = Math.max(0, 50 - ageDays);\n  const trendingScore = safe(r.TrendScore) || safe(r.trendingScore) || Math.round(viewsPerDay * 0.1 + engagementPct * 5 + recencyBoost);\n\n  return {\n    channel: r.channelTitle || r.channel || \"\",\n    videoId: r.videoID || r.videoId || \"\",\n    url: r.URL || r.url || \"\",\n    title: r.title || r.videoTitle || \"\",\n    tactic: r.tactic || r.type || \"\",\n    keywords: (r.keywords || r.relevantKeywords || r.matchedKeywords || \"\").toString().toLowerCase(),\n    views, likes, comments, ageDays,\n    viewsPerDay,\n    engagementPct: +engagementPct.toFixed(2),\n    trendingScore,\n    hotScore: safe(r.hotScore)\n  };\n}).filter(x => x.title || x.channel);\n\n// ---- helper\nconst by = k => (a,b) => (b[k]||0) - (a[k]||0);\n\n// ---- channel aggregates\nconst chMap = new Map();\nfor (const r of records) {\n  const k = r.channel || \"Unknown\";\n  const v = chMap.get(k) || { channel:k, n:0, sumVPD:0, sumEng:0, sumTrend:0, recent:0, kw:new Map(), samples:[] };\n  v.n++;\n  v.sumVPD += r.viewsPerDay;\n  v.sumEng += r.engagementPct;\n  v.sumTrend += r.trendingScore;\n  if (r.ageDays <= 14) v.recent++;\n  // collect keyword counts\n  const kws = r.keywords.split(\",\").map(s=>s.trim()).filter(Boolean);\n  for (const kw of kws) v.kw.set(kw, (v.kw.get(kw)||0)+1);\n  // keep up to 3 sample titles\n  if (v.samples.length < 3) v.samples.push(r.title);\n  chMap.set(k, v);\n}\n\nconst channels_top = [...chMap.values()].map(v => ({\n  channel: v.channel,\n  videos_considered: v.n,\n  avg_views_per_day: Math.round(v.sumVPD / Math.max(1,v.n)),\n  avg_engagement_pct: +(v.sumEng / Math.max(1,v.n)).toFixed(2),\n  avg_trending_score: Math.round(v.sumTrend / Math.max(1,v.n)),\n  recent_ratio_14d: +(v.recent / Math.max(1,v.n)).toFixed(2),\n  top_keywords: [...v.kw.entries()].sort((a,b)=>b[1]-a[1]).slice(0,5).map(([k,c])=>({keyword:k,count:c})),\n  sample_titles: v.samples\n})).sort(by('avg_trending_score')).slice(0,20);\n\n// ---- keyword aggregates\nconst kwMap = new Map();\nfor (const r of records) {\n  const kws = r.keywords.split(\",\").map(s=>s.trim()).filter(Boolean);\n  for (const kw of kws) {\n    const v = kwMap.get(kw) || { keyword: kw, mentions:0, sumTrend:0, channels:new Map() };\n    v.mentions++;\n    v.sumTrend += r.trendingScore;\n    v.channels.set(r.channel, (v.channels.get(r.channel)||0)+1);\n    kwMap.set(kw, v);\n  }\n}\n\nconst keywords_top = [...kwMap.values()].map(v => ({\n  keyword: v.keyword,\n  mentions: v.mentions,\n  avg_trending_score: Math.round(v.sumTrend / Math.max(1,v.mentions)),\n  top_channels: [...v.channels.entries()].sort((a,b)=>b[1]-a[1]).slice(0,5).map(([c,n])=>({channel:c,count:n}))\n})).sort(by('mentions')).slice(0,20);\n\n// ---- search intents (if your merged rows include PAA/search items)\nconst paaMap = new Map();\nfor (const r of rows) {\n  if (!r.question) continue;\n  const q = String(r.question).trim();\n  if (!q) continue;\n  paaMap.set(q, (paaMap.get(q)||0)+1);\n}\n\nconst search_intents = [...paaMap.entries()]\n  .map(([question,freq])=>({question,freq}))\n  .sort((a,b)=>b.freq-a.freq)\n  .slice(0,20);\n\n// ---- sample records for grounding\nconst sample_records = records.slice(0,25);\n\n// ✅ NEW: Add user's keywords list\nconst user_keywords_summary = userKeywords.map(kw => {\n  const kwData = kwMap.get(kw.toLowerCase());\n  return {\n    keyword: kw,\n    found_in_data: kwData ? kwData.mentions : 0,\n    avg_trend_score: kwData ? Math.round(kwData.sumTrend / Math.max(1, kwData.mentions)) : 0\n  };\n});\n\n// ---- final output\nreturn [{\n  json: {\n    data_dictionary,\n    business_goal,\n    constraints,\n    campaign_context: {\n      campaignGoal,\n      businessType,\n      targetAudience,\n      dailyBudget,\n      targetCPA,\n      campaignDuration,\n      regionCode\n    },\n    user_keywords: user_keywords_summary,\n    summary: {\n      totals: { \n        records: records.length, \n        channels: chMap.size, \n        unique_keywords: kwMap.size,\n        user_keywords_count: userKeywords.length\n      }\n    },\n    channels_top,\n    keywords_top,\n    search_intents,\n    sample_records\n  }\n}];"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -1424,
+        0
+      ],
+      "id": "2ddfae74-4ce4-46a6-84cd-fd6c81b33a9c",
+      "name": "summary"
+    },
+    {
+      "parameters": {
+        "modelId": {
+          "__rl": true,
+          "value": "o4-mini",
+          "mode": "list",
+          "cachedResultName": "O4-MINI"
+        },
+        "messages": {
+          "values": [
+            {
+              "content": "You are a senior YouTube Ads strategist. Your job is to create a precise, execution-ready YouTube Ads strategy customized to the client's specific business, goals, and target audience. Analyze the provided campaign context and performance data to deliver a practical strategy that can be executed directly in Google Ads.",
+              "role": "system"
+            },
+            {
+              "content": "=# YouTube Ads Strategy Generation\n\nUsing the comprehensive data analysis provided below, create a **professional YouTube Ads Strategy document** with the exact structure and format specified.\n\n---\n\n## 📊 INPUT DATA\n\n### Campaign Context\n- **Business Goal:** {{$json.business_goal}}\n- **Campaign Objective:** {{$json.campaign_context.campaignGoal}}\n- **Business Type:** {{$json.campaign_context.businessType}}\n- **Target Audience:** {{$json.campaign_context.targetAudience}}\n- **Daily Budget:** {{$json.campaign_context.dailyBudget}}\n- **Target CPA:** {{$json.campaign_context.targetCPA}}\n- **Campaign Duration:** {{$json.campaign_context.campaignDuration}} days\n- **Region Code:** {{$json.campaign_context.regionCode}}\n\n### User's Target Keywords\n{{$json.user_keywords}}\n\n### Performance Data\n- **Total Videos Analyzed:** {{$json.summary.totals.records}}\n- **Unique Channels:** {{$json.summary.totals.channels}}\n- **Unique Keywords:** {{$json.summary.totals.unique_keywords}}\n\n### Top Performing Channels\n{{$json.channels_top}}\n\n### Top Keywords by Performance\n{{$json.keywords_top}}\n\n### Search Intent & User Questions\n{{$json.search_intents}}\n\n### YouTube Autocomplete Suggestions\n{{$json.autocomplete_keyword_suggestions}}\n\n### Sample High-Performing Videos\n{{$json.sample_records}}\n\n---\n\n## 📋 REQUIRED OUTPUT FORMAT\n\nGenerate a strategy document with the following EXACT structure. Use the data provided to populate each section with specific, actionable recommendations.\n\n---\n\n## **Campaign Objective**\n\n**Objective:** [Write a clear, specific objective based on {{$json.business_goal}} and {{$json.campaign_context.campaignGoal}}. Focus on the conversion action and time-bound nature.]\n\n**Key Message:** [Based on {{$json.user_keywords}} and {{$json.keywords_top}}, create a compelling key message that emphasizes urgency, value, and outcomes. Include specific benefits derived from search intent data.]\n\n---\n\n## **Audience Targeting**\n\n### **Demographics:**\n- **Ages:** [Specify age range based on {{$json.campaign_context.targetAudience}}]\n- **Education Level:** [e.g., \"College graduates\", \"Working professionals\"]\n- **Professional Status:** [e.g., \"Working professionals\", \"Career changers\"]\n\n### **Locations:**\n- **Primary Region:** {{$json.campaign_context.regionCode}}\n- **Additional Markets:** [If applicable, suggest based on data]\n\n### **Interests:**\nBased on {{$json.channels_top}} and {{$json.keywords_top}}, target these interest categories:\n- [Interest 1 - derived from top channels]\n- [Interest 2 - derived from top keywords]\n- [Interest 3 - derived from search intents]\n- [Interest 4 - derived from trending topics]\n\n---\n\n## **Creative Approach**\n\n### **Video Hooks:**\nBased on analysis of {{$json.sample_records}} and {{$json.search_intents}}, use these proven hooks:\n- [Hook 1 - pattern from high-performing videos]\n- [Hook 2 - addresses top search intent question]\n- [Hook 3 - creates urgency based on campaign duration]\n\n### **Video Length:**\n[Analyze {{$json.sample_records}} to determine optimal length. Default: \"15-30 seconds for skippable in-stream ads\"]\n\n### **CTA Style:**\n[Create specific CTA copy based on {{$json.campaign_context.campaignGoal}}. Format: \"Urgent and direct: '[Exact CTA text]'\"]\n\n---\n\n## **Ad Formats & Budget**\n\n### **Primary Format:** \nSkippable In-Stream [or adjust based on data insights]\n\n### **Budget Allocation:**\n**Total Daily Budget:** {{$json.campaign_context.dailyBudget}}\n\n**Allocation Breakdown:**\n- 60% In-Stream Ads\n- 30% Discovery Ads  \n- 10% Remarketing Ads\n\n[Adjust percentages based on {{$json.channels_top}} performance data]\n\n### **Daily Pacing:**\n[Recommend \"Accelerated pacing\" or \"Standard pacing\" based on campaign objectives and competition level from {{$json.channels_top}}]\n\n---\n\n## **Keyword Strategy**\n\n### **Primary Keywords:**\nBased on {{$json.user_keywords}} with highest performance scores:\n- [Keyword 1 from user_keywords with high mentions]\n- [Keyword 2 from user_keywords with high mentions]\n- [Keyword 3 from user_keywords with high mentions]\n- [Keyword 4 from user_keywords with high mentions]\n\n### **Autocomplete Insights:**\n\n**Best Variations:**\n[Extract top autocomplete suggestions from {{$json.autocomplete_keyword_suggestions}} for each primary keyword]\n\n**Expansion Rationale:**\n[If autocomplete data exists, explain patterns. If not: \"No autocomplete suggestions available; expand with long-tail, course-specific, and urgency-driven modifiers to capture broader search intent\"]\n\n### **Recommended Ad Groups:**\n\n[Create 3-4 ad groups based on {{$json.keywords_top}} themes. For each:]\n\n**1. [Group Name]**\n- **Keywords:** [List 3-5 related keywords from {{$json.keywords_top}} and {{$json.autocomplete_keyword_suggestions}}]\n- **Targeting Focus:** [Define audience based on {{$json.channels_top}} and {{$json.search_intents}}]\n\n**2. [Group Name]**\n- **Keywords:** [List 3-5 related keywords]\n- **Targeting Focus:** [Define audience]\n\n**3. [Group Name]**\n- **Keywords:** [List 3-5 related keywords]\n- **Targeting Focus:** [Define audience]\n\n---\n\n## **KPIs & Benchmarks**\n\n### **Target CPL:**\n{{$json.campaign_context.targetCPA}}\n\n### **CTR Goals:**\n[Calculate realistic CTR goal based on {{$json.sample_records}} engagement data. Default range: 1.0-2.0%]\n\n### **Additional Metrics:**\n- **View-through rate (VTR):** [Set goal based on {{$json.sample_records}} viewsPerDay analysis]\n- **Conversion rate:** [Calculate based on Target CPA and expected traffic]\n- **Cost per view (CPV):** [Estimate based on region and competition]\n- **Impression share:** [Set target percentage]\n\n---\n\n## **Tracking Setup**\n\n### **GA4 Implementation:**\n- Link Google Ads account to GA4 property\n- Enable enhanced measurement on registration confirmations\n- Set custom '[conversion_event_name]' event in GA4 [customize based on {{$json.campaign_context.campaignGoal}}]\n\n### **Conversion Tracking:**\n- Install Google Ads conversion tag on confirmation page\n- Verify tag firing using Google Tag Assistant\n- Import GA4 '[conversion_event_name]' event into Google Ads as conversion\n\n---\n\n## **Timeline**\n\n**Week 1: Campaign Setup**\n[List specific setup tasks based on campaign complexity and {{$json.campaign_context.campaignDuration}}]\n- Finalize targeting using {{$json.channels_top}} and {{$json.keywords_top}}\n- Upload creatives based on recommended hooks\n- Configure tracking and bidding strategies\n\n**Week 2: Learning Phase**\n[List optimization activities]\n- Monitor performance against KPI benchmarks\n- Adjust bids based on actual CPA vs target\n- Test ad variations from recommended hooks\n- Refine audiences based on placement performance\n\n**Week 3: Scaling Phase**\n[List scaling activities - adjust based on {{$json.campaign_context.campaignDuration}}]\n- Increase budget on top-performing segments from ad group analysis\n- Activate remarketing for non-converters\n- Launch urgency-driven creative variations\n\n---\n\n## **Risks & Mitigation**\n\nBased on {{$json.channels_top}} competitive analysis and {{$json.sample_records}} performance patterns:\n\n### **Risk 1: Low click-through rate**\n**Mitigation:** Test new video thumbnails based on high-performing patterns from {{$json.sample_records}}, adjust hooks from recommended list, refine audience segments using {{$json.channels_top}} insights\n\n### **Risk 2: High cost per lead**\n**Mitigation:** Optimize bids to target {{$json.campaign_context.targetCPA}}, tighten targeting to top-performing keywords from {{$json.keywords_top}}, add negative keywords based on irrelevant search terms\n\n### **Risk 3: Tracking discrepancies**\n**Mitigation:** Regularly audit GA4 and Ads tags; verify event firing and conversion counts match confirmation page visits\n\n[Add 1-2 more risks based on {{$json.campaign_context.regionCode}} market conditions or {{$json.channels_top}} competition level]\n\n---\n\n## 📄 OUTPUT FORMATTING REQUIREMENTS\n\n1. **Use clear hierarchical headings** (##, ###)\n2. **Use bullet points** for lists\n3. **Bold important metrics and numbers**\n4. **Include specific data points** from the analysis (don't use placeholders like \"XX\" - calculate actual numbers)\n5. **Write in professional, client-ready language**\n6. **Be specific and actionable** - avoid generic advice\n7. **Reference the data** to justify recommendations\n8. **Format for easy PDF conversion** (clean markdown)\n\n---\n\n## 🎯 CRITICAL INSTRUCTIONS\n\n1. **Calculate all numeric targets** - Don't leave placeholders. If Target CPL is $25, calculate expected conversions from daily budget.\n\n2. **Use actual keywords from the data** - Extract from {{$json.user_keywords}}, {{$json.keywords_top}}, and {{$json.autocomplete_keyword_suggestions}}\n\n3. **Reference specific channels** - Use actual channel names from {{$json.channels_top}} for placement recommendations\n\n4. **Base creative recommendations on real patterns** - Analyze {{$json.sample_records}} for actual successful content patterns\n\n5. **Adjust timeline based on duration** - If campaign is 14 days, compress the 3-week timeline accordingly\n\n6. **Match tone to business type** - If {{$json.campaign_context.businessType}} is \"higher-ed\", use professional academic tone\n\n7. **Localize for region** - Adjust recommendations based on {{$json.campaign_context.regionCode}} market dynamics\n\n8. **Be decisive** - Don't say \"consider\" or \"might\" - make clear recommendations based on the data\n\nGenerate the complete strategy now using all available data."
+            }
+          ]
+        },
+        "jsonOutput": true,
+        "options": {
+          "temperature": 1,
+          "reasoning_effort": "high"
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "typeVersion": 1.8,
+      "position": [
+        -528,
+        0
+      ],
+      "id": "1197506a-d57c-4d7a-a771-9d804916100e",
+      "name": "Analyst",
+      "credentials": {
+        "openAiApi": {
+          "id": "19T9uLTGReVFmjQz",
+          "name": "OpenAi account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "actorId": {
+          "__rl": true,
+          "value": "uGDf7i3E74mdhIpKQ",
+          "mode": "list",
+          "cachedResultName": "Youtube Autocomplete Scraper (scraper-mind/youtube-autocomplete-scraper)",
+          "cachedResultUrl": "https://console.apify.com/actors/uGDf7i3E74mdhIpKQ/input"
+        },
+        "customBody": "={\n  \"query\": \"{{ $json.keyword.split(' ')[0] }}\",\n  \"language\": \"English\",\n  \"country\": \"India\",\n  \"usePrefix\": true,\n  \"useSuffix\": true\n}"
+      },
+      "type": "@apify/n8n-nodes-apify.apify",
+      "typeVersion": 1,
+      "position": [
+        -976,
+        0
+      ],
+      "id": "90aee0ab-0591-46f4-a772-dac3a28fde6f",
+      "name": "Run an Actor and get dataset",
+      "credentials": {
+        "apifyApi": {
+          "id": "y2CLs0EkUpUue4QQ",
+          "name": "Apify account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "// Get the summary data\nconst summaryData = $json;\n\n// Extract unique keywords from keywords_top\nconst keywords = summaryData.keywords_top\n  .slice(0, 12)  // Top 12 keywords\n  .map(k => k.keyword);\n\n// Return each keyword as a separate item for Apify\nreturn keywords.map(keyword => ({\n  json: { \n    keyword,\n    // Preserve summary data to pass through later\n    originalSummary: summaryData\n  }\n}));"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -1200,
+        0
+      ],
+      "id": "ae1116d5-f21a-446f-8baa-da376a1f7c87",
+      "name": "extract_keywords",
+      "alwaysOutputData": true
+    },
+    {
+      "parameters": {
+        "jsCode": "// Collect all Apify results\nconst apifyResults = $input.all();\n\n// Get the original summary (preserved in first item)\nconst originalSummary = apifyResults[0]?.json?.originalSummary || {};\n\n// Process autocomplete suggestions\nconst autocomplete_data = [];\n\nfor (const item of apifyResults) {\n  const seedKeyword = item.json.query;\n  const suggestions = [];\n  \n  // Extract all suggestion fields from Apify output\n  for (let i = 1; i <= 10; i++) {\n    const key = `suggestion_${i.toString().padStart(2, '0')}`;\n    if (item.json[key]) {\n      suggestions.push(item.json[key]);\n    }\n  }\n  \n  if (suggestions.length > 0) {\n    autocomplete_data.push({\n      seed_keyword: seedKeyword,\n      suggestions: suggestions\n    });\n  }\n}\n\n// Combine original summary with autocomplete data\nreturn [{\n  json: {\n    ...originalSummary,\n    autocomplete_keyword_suggestions: autocomplete_data\n  }\n}];"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -752,
+        0
+      ],
+      "id": "454a97f5-4afa-4754-9289-f0ef7a9485e7",
+      "name": "formatting"
+    },
+    {
+      "parameters": {
+        "options": {
+          "responseCode": 200,
+          "responseHeaders": {
+            "entries": [
+              {
+                "name": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "name": "Access-Control-Allow-Headers",
+                "value": "Content-Type"
+              },
+              {
+                "name": "Access-Control-Allow-Methods",
+                "value": "POST,OPTIONS"
+              },
+              {
+                "name": "Access-Control-Allow-Origin",
+                "value": "*"
+              }
+            ]
+          },
+          "responseKey": "={{$json.message.content}}"
+        }
+      },
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.4,
+      "position": [
+        -176,
+        0
+      ],
+      "id": "a6531920-ba85-453a-a91d-517ed8c47aa5",
+      "name": "Respond to Webhook"
+    },
+    {
+      "parameters": {
+        "multipleMethods": true,
+        "httpMethod": [
+          "POST"
+        ],
+        "path": "/strategy",
+        "responseMode": "responseNode",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2.1,
+      "position": [
+        -4336,
+        0
+      ],
+      "id": "d3b86370-8f68-4e0a-884f-d846697996ae",
+      "name": "Webhook",
+      "webhookId": "439b3753-7ed2-4da2-8787-ec2b67c4e9de",
+      "alwaysOutputData": true
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "configuration": {
+      "main": [
+        [
+          {
+            "node": "Make_keyword_items",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Make_keyword_items": {
+      "main": [
+        [
+          {
+            "node": "YT.videoData",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "YT.TrendingData",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Collect IDs": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Items",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Loop Over Items": {
+      "main": [
+        [],
+        [
+          {
+            "node": "build_ID_csv",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "build_ID_csv": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Items",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "YT.videoList",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "YT.videoData": {
+      "main": [
+        [
+          {
+            "node": "Collect IDs",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "YT.videoList": {
+      "main": [
+        [
+          {
+            "node": "Normalize+Score",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Normalize+Score": {
+      "main": [
+        [
+          {
+            "node": "Append row in sheet",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Append row in sheet": {
+      "main": [
+        [
+          {
+            "node": "normalize_data_discovery",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "YT.TrendingData": {
+      "main": [
+        [
+          {
+            "node": "Code",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code": {
+      "main": [
+        [
+          {
+            "node": "Append row in sheet1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Append row in sheet1": {
+      "main": [
+        [
+          {
+            "node": "normalize_data_trends",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "normalize_data_trends": {
+      "main": [
+        [
+          {
+            "node": "normalized trends data",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "normalize_data_discovery": {
+      "main": [
+        [
+          {
+            "node": "Append or update row in sheet",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "normalized trends data": {
+      "main": [
+        [
+          {
+            "node": "Merge",
+            "type": "main",
+            "index": 1
+          }
+        ]
+      ]
+    },
+    "Append or update row in sheet": {
+      "main": [
+        [
+          {
+            "node": "Merge",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Merge": {
+      "main": [
+        [
+          {
+            "node": "summary",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "normalizer": {
+      "main": [
+        [
+          {
+            "node": "Append row in sheet3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Google_data": {
+      "main": [
+        [
+          {
+            "node": "normalizer",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Append row in sheet3": {
+      "main": [
+        [
+          {
+            "node": "Merge",
+            "type": "main",
+            "index": 2
+          }
+        ]
+      ]
+    },
+    "summary": {
+      "main": [
+        [
+          {
+            "node": "extract_keywords",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Analyst": {
+      "main": [
+        [
+          {
+            "node": "Respond to Webhook",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Run an Actor and get dataset": {
+      "main": [
+        [
+          {
+            "node": "formatting",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "extract_keywords": {
+      "main": [
+        [
+          {
+            "node": "Run an Actor and get dataset",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "formatting": {
+      "main": [
+        [
+          {
+            "node": "Analyst",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Webhook": {
+      "main": [
+        [
+          {
+            "node": "configuration",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Google_data",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": true,
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "versionId": "af14a573-8b4f-4453-b696-96d1f4800f41",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "47fb0e68bf2b3d9c9aa6125377b04622b1151a8aed7ce1934f124de45acbe638"
+  },
+  "id": "fWL0rhLLSlKqXQPx",
+  "tags": []
+}
