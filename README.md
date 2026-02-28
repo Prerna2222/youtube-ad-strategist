@@ -5,6 +5,8 @@ An automated YouTube Ads strategy system built using **n8n automation** that dis
 
 The system collects data from **YouTube APIs, Google Search insights, and keyword discovery** to recommend campaign ideas, placements, and targeting strategies.
 
+you can check it out on : adally.net 
+
 ---
 
 # Features
